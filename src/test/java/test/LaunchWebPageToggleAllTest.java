@@ -8,7 +8,7 @@ import page.LaunchWebPage;
 import page.ValidatePage;
 import util.BrowserFactory;
 
-public class LaunchWebPageTest {
+public class LaunchWebPageToggleAllTest {
 	
 	WebDriver driver;
 	
@@ -20,12 +20,19 @@ public class LaunchWebPageTest {
 		 Thread.sleep(3000);
 		 		
 		 LaunchWebPage launchPage = PageFactory.initElements(driver, LaunchWebPage.class);
+		 launchPage.insertElement("abc");
+		 launchPage.clickOnAddButton();
+		 launchPage.insertElement1("def");
+		 launchPage.clickOnAddButton1();
+		 Thread.sleep(2000);
 		 launchPage.clickOnToggleALL();
 		 
-		 ValidatePage validatePage = PageFactory.initElements(driver, ValidatePage.class);
-		 validatePage.validateValidatePage("NSS");
-		 
 		 Thread.sleep(3000);
+		 
+		 ValidatePage validatePage = PageFactory.initElements(driver, ValidatePage.class);
+		 validatePage.validateValidatePage();
+		 
+		 Thread.sleep(2000);
 		 BrowserFactory.tearDown();
 	}
 

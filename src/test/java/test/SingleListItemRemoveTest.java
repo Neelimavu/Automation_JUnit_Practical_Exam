@@ -16,10 +16,13 @@ public class SingleListItemRemoveTest {
 		driver = BrowserFactory.init();
 		
 		SingleListRemovePage singlelist = PageFactory.initElements(driver, SingleListRemovePage.class);
+		singlelist.insertElement("xyz");
+		singlelist.clickOnAddButton();
 		singlelist.clickOnSingleCheckBox();
 		Thread.sleep(3000);
 		singlelist.removeButton();
 		
+		Thread.sleep(2000);
 		BrowserFactory.tearDown();
 	}
 		
